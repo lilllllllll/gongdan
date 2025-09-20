@@ -13,24 +13,25 @@ import Dashed from './components/dashed.vue'
 import Light from './components/light.vue'
 import Logo from './components/logo.vue'
 import LoginForm from './components/login-form.vue'
+// 定义重置密码状态，供 Logo 和 LoginForm 共享
+const isResetPassword = ref(false)
 
+// 提供修改状态的方法给子组件
+const setResetPassword = (status: boolean) => {
+  isResetPassword.value = status
+}
 </script>
 
 <template>
-  <div class="h-full
-  min-w-[380px]
-  w-full flex
-  items-center
-  justify-center overflow-hidden border-1
-  lg:justify-between
-  bgc_box
-   ">
+  <div
+    class="h-full min-w-[380px] w-full flex items-center justify-center overflow-hidden border-1 lg:justify-between bgc_box"
+  >
     <div class="relative hidden h-full w-10/12 md:hidden lg:flex">
       <div class="gradient-rainbow" />
     </div>
     <div class="login-form-container">
-      <Logo />
-      <LoginForm />
+      <Logo :is-reset-password="isResetPassword" />
+      <LoginForm :is-reset-password="isResetPassword" @update:isResetPassword="setResetPassword" />
       <!-- <CopyRight /> -->
     </div>
     <!-- 下面兼容移动端的 -->

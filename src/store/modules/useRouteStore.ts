@@ -58,21 +58,7 @@ const useRouteStore = defineStore(
         component: () => import('@/layouts'),
         redirect: welcomePage.path,
         children: [
-          Object.assign(welcomeRoute, {
-            name: welcomePage.name,
-            path: welcomePage.path,
-            meta: {
-              title: welcomePage.title,
-              i18n: 'menu.welcome',
-              icon: welcomePage.icon,
-              type: 'M',
-              affix: true,
-              breadcrumbEnable: true,
-              copyright: true,
-              cache: true,
-            },
-          }),
-          toRecordRawRoute(dashboardRoute),
+          // toRecordRawRoute(dashboardRoute),
           toRecordRawRoute({
             path: '/:pathMatch(.*)*',
             name: 'MineSystemError',

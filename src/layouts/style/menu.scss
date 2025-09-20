@@ -1,17 +1,18 @@
 .mine-menu-item {
-  @apply mx-auto px-2 relative transition-all;
+  @apply mx-auto relative transition-all;
 }
-
+.mine-sub-menu .mine-menu-link {
+  @apply text-[#666];
+}
 .mine-menu-link {
-  @apply flex items-center justify-between text-sm px-[var(--mine-g-menu-retract-width)] mt-1.5 cursor-pointer
-  decoration-none rounded truncate overflow-x-hidden
-  text-gray-7 dark-text-gray-2
-  ;
+  @apply flex items-center justify-between text-[18px] pl-[var(--mine-g-menu-retract-width-left)] pr-[var(--mine-g-menu-retract-width-right)] cursor-pointer
+  decoration-none  truncate overflow-x-hidden
+  text-gray-7 dark-text-gray-2;
 
   transition: all 0.2s, display 0.3s;
 
   .mine-menu-link-left {
-    @apply flex items-center gap-x-3 h-11 text-sm justify-center;
+    @apply flex items-center gap-x-3 h-[53px] text-[18px] justify-center;
 
     & .mine-menu-icon {
       @apply w-[24px] h-[20px] text-[20px];
@@ -23,8 +24,7 @@
   }
 
   .mine-collapse-icon {
-    @apply
-    relative ml-1 w-[10px]
+    @apply relative ml-1 w-[10px]
     after:(absolute h-[1.5px] w-[6px] bg-current transition-transform-200 content-empty -translate-y-[1px])
     before:(absolute h-[1.5px] w-[6px] bg-current transition-transform-200 content-empty -translate-y-[1px]);
   }
@@ -32,23 +32,26 @@
   .mine-menu-badge {
     @apply text-xs py-0.5 px-1 rounded-md
     bg-red-4 dark-bg-red-6
-    text-white
-    ;
+    text-white;
   }
 }
-
+.mine-sub-menu {
+  .mine-menu-link {
+   .mine-menu-link-left {
+    @apply text-base h-[50px];
+   }
+  }
+}
 .mine-menu-link:hover {
-  @apply
-  bg-[rgb(var(--ui-primary)/5%)] text-[rgb(var(--ui-primary))]
-  dark-bg-[rgb(var(--ui-primary)/30%)] dark-text-gray-2
-  ;
+  @apply bg-[rgb(var(--ui-primary)/8.5%)] text-[rgb(var(--ui-primary))]
+  dark-bg-[rgb(var(--ui-primary)/30%)] dark-text-gray-2;
 }
 
 .mine-menu-link.active {
-  @apply
-  bg-[rgb(var(--ui-primary)/5%)] text-[rgb(var(--ui-primary))]
-  dark-bg-[rgb(var(--ui-primary)/70%)] dark-text-gray-2
-  ;
+  border-right: 2px solid rgb(var(--ui-primary));
+
+  @apply bg-[rgb(var(--ui-primary)/8.5%)] text-[rgb(var(--ui-primary))]
+  dark-bg-[rgb(var(--ui-primary)/70%)] dark-text-gray-2;
 }
 
 .mine-menu-link.parentActive {
@@ -56,12 +59,9 @@
 }
 
 .mine-sub-menu {
-  @apply
-  ring-stone-2 dark-ring-stone-8
-  bg-[#f9fafc] dark-bg-dark-8
-  ;
+  @apply ring-stone-2 dark-ring-stone-8
+  bg-[#fff] dark-bg-dark-8;
 }
-
 .mine-menu-enter-active {
   transition: 0.2s;
 }

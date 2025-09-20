@@ -65,13 +65,14 @@ export default defineComponent ({
             }}
           >
             {
-              ((!showMineHeader() && showMineSubAside()) || (!getMenuCollapseState() && isColumnsLayout()) || getMobileState())
-              && (
-                <Logo
-                  showLogo={showMineSubAside() || getMenuCollapseState()}
-                  showTitle={!getMenuCollapseState()}
-                />
-              )
+              //logo  注释隐藏
+              // ((!showMineHeader() && showMineSubAside()) || (!getMenuCollapseState() && isColumnsLayout()) || getMobileState())
+              // && (
+              //   <Logo
+              //     showLogo={showMineSubAside() || getMenuCollapseState()}
+              //     showTitle={!getMenuCollapseState()}
+              //   />
+              // )
             }
             <div ref={subAsideRef} class={asideListClass.value} onScroll={onSubAsideScroll}>
               <MineMenu

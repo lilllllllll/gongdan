@@ -20,6 +20,11 @@ export interface LoginParams {
   password: string
 }
 
+export interface PhoneLoginParams {
+  phone: string
+  code: string
+}
+
 export interface LoginResult {
   access_token: string
   expire_at: number
@@ -53,6 +58,14 @@ function loginApi(data: LoginParams): Promise<ResponseStruct<LoginResult>> {
   return useHttp().post('/admin/passport/login', data)
 }
 
+
+/**
+ * 手机号验证码登录
+ * @param data
+ */
+function phoneLoginApi(data: PhoneLoginParams): Promise<ResponseStruct<LoginResult>> {
+  return useHttp().post('/admin/passport/login-by-phone', data)
+}
 const useUserStore = defineStore(
   'useUserStore',
   () => {
@@ -107,15 +120,27 @@ const useUserStore = defineStore(
       setMenu(res.data)
     }
 
-    async function login(data: { username: string, password: string, code: string, [key: string]: any }) {
+  async function login(data: LoginParams | PhoneLoginParams) {
       await usePluginStore().callHooks('loginBefore', data)
       return new Promise((resolve, reject) => {
-        loginApi(data).then(async (res) => {
+        // 判断是账户登录还是手机号登录
+        const loginRequest = 'username' in data
+          ? loginApi(data as LoginParams)
+          : phoneLoginApi(data as PhoneLoginParams)
+
+        loginRequest.then(async (res) => {
           token.value = res.data.access_token
           cache.set('token', res.data.access_token)
           cache.set('expire', useDayjs().unix() + res.data.expire_at, { exp: res.data.expire_at })
           cache.set('refresh_token', res.data.refresh_token)
-          await usePluginStore().callHooks('login', { username: data.username, ...res.data })
+
+          const loginType = 'username' in data ? 'account' : 'phone'
+          await usePluginStore().callHooks('login', {
+            ...(loginType === 'account' && { username: (data as LoginParams).username }),
+            ...(loginType === 'phone' && { phone: (data as PhoneLoginParams).phone }),
+            ...res.data
+          })
+
           resolve(res.data)
         }).catch((error) => {
           reject(error)
@@ -241,7 +266,7 @@ const useUserStore = defineStore(
     }
 
     return {
-      token,
+       token,
       isLogin,
       login,
       logout,

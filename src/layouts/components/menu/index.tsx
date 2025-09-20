@@ -71,9 +71,9 @@ export default defineComponent({
       if (openedMenus.value.includes(index)) {
         return
       }
-      if (props.accordion) {
-        openedMenus.value = indexPath
-      }
+      // if (props.accordion) {
+      //   openedMenus.value = indexPath
+      // }
       openedMenus.value.push(...indexPath)
     }
     const closeMenu: MenuInjection['closeMenu'] = async (index) => {

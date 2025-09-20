@@ -1,9 +1,7 @@
 .el-menu {
   .el-menu-item:hover {
-    @apply
-    dark-bg-[var(--el-color-primary-light-1)]
-    dark-text-[var(--el-color-primary-light-9)]
-    ;
+    @apply dark-bg-[var(--el-color-primary-light-1)]
+    dark-text-[var(--el-color-primary-light-9)];
   }
 }
 
@@ -11,9 +9,9 @@
   @apply rounded;
 }
 
-.el-table th.el-table__cell{
+.el-table th.el-table__cell {
   @apply font-500 text-dark-9 dark-text-gray-1
-  !bg-gray-100
+  !bg-[#f4f4f4]
   !dark:bg-dark-5;
 }
 
@@ -22,7 +20,6 @@
 }
 
 .el-tree {
-
   .el-tree-node__content {
     @apply rounded mt-0.5 h-35px;
   }
@@ -43,13 +40,13 @@
   }
 }
 
-.el-dialog__headerbtn, .el-drawer__close-btn {
+.el-dialog__headerbtn,
+.el-drawer__close-btn {
   @apply top-10px right-10px transition-all duration-200 w-30px h-30px flex items-center justify-center rounded
-  bg-gray-1 hover:bg-gray-2 dark:bg-dark-4 dark-hover:bg-dark-5
-  ;
+  bg-gray-1 hover:bg-gray-2 dark:bg-dark-4 dark-hover:bg-dark-5;
 
   .el-icon {
-    @apply  text-dark-6 dark-text-white transition-all duration-200 ;
+    @apply text-dark-6 dark-text-white transition-all duration-200;
   }
 
   .el-icon:hover {
@@ -61,3 +58,29 @@
   border: none;
 }
 
+.el-pagination {
+  &.is-background {
+    .btn-next,
+    .btn-prev,
+    .el-pager li {
+      @apply bg-[#F2F4F7] rounded-[5px] dark-bg-dark-2;
+    }
+    .el-pager li.is-active {
+      @apply bg-[var(--el-color-primary)];
+    }
+  }
+  .el-input__wrapper,
+  .el-select__wrapper {
+    @apply bg-[#F2F4F7] rounded-[5px] shadow-none dark-bg-dark-2;
+  }
+}
+
+.el-table__inner-wrapper:before {
+  height: 0;
+}
+
+.el-table td.el-table__cell,
+.el-table th.el-table__cell.is-leaf {
+  // border-bottom: none;
+  border-bottom-color: transparent;
+}

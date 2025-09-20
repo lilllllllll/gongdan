@@ -11,19 +11,25 @@
 }
 .bgc_box {
   /* 引入图片 */
-  background-image: url('@/assets/images/bgc.png');
+  background-image: url('@/assets/images/bgcs.png');
 
   /* 图片不重复 */
   background-repeat: no-repeat;
-
-  /* 图片覆盖整个容器 */
-  background-size: cover;
-
+  // background-image: url('@/assets/images/bgc.png');
+  /* 确保图片完整显示，不被裁剪 */
+  background-size: 100% 100%;
   /* 图片居中显示 */
-  background-position: center center;
+  background-position: center;
 
-  /* 背景固定（滚动时不移动） */
+  /* 不重复平铺图片 */
+  background-repeat: no-repeat;
+
+  /* 保持图片高清，避免拉伸模糊 */
   background-attachment: fixed;
+
+  /* 确保容器有足够尺寸显示图片 */
+  width: 100%;
+  height: 100vh; /* 至少占满整个视口高度 */
 }
 
 .login-logo {
@@ -58,3 +64,4 @@
     }
   }
 }
+

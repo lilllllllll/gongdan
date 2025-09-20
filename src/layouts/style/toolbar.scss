@@ -1,20 +1,17 @@
 .mine-toolbar {
-  @apply
-    flex items-center justify-between px-3
+  @apply flex items-center justify-between px-3
     bg-[#f9fafc]
     dark-bg-dark-8
     text-sm
     b-b-1 b-b-solid b-[#e8e9ec] dark-b-dark-5
-    transition-all duration-300
-  ;
+    transition-all duration-300;
 
   height: var(--mine-g-toolbar-height);
 }
 
 .mine-toolbar-btn {
   @apply z-100 h-5 w-5 cursor-pointer
-  b-1 b-gray-3 rounded b-solid bg-gray-2 text-center dark-bg-dark-5 dark-b-dark-3
-  ;
+  b-1 b-gray-3 rounded b-solid bg-gray-2 text-center dark-bg-dark-5 dark-b-dark-3;
 }
 
 .collection-wrapper {
@@ -29,8 +26,7 @@
   & .div-button {
     @apply py-1.5 px-2 cursor-pointer
       border-1 border-solid border-gray-2 dark-b-dark-2 rounded
-      bg-white dark-bg-dark-6 flex justify-between items-center
-    ;
+      bg-white dark-bg-dark-6 flex justify-between items-center;
 
     & .menu {
       @apply flex items-center text-sm gap-x-1 w-12/12 overflow-hidden truncate;
@@ -51,17 +47,15 @@
 }
 
 .breadcrumb {
-  @apply flex items-center;
+  @apply flex items-center bg-white dark-bg-dark-8 rounded-lg shadow-[0px_0px_10px_#E6EDF5] dark-shadow-[0px_0px_10px_#000] h-10.5 my-6.5 ml-6.5 mr-7.5 pl-9;
 
   & a {
-    @apply text-gray-7 dark-text-gray-2 decoration-none text-sm flex
-      items-center gap-x-1
-    ;
+    @apply text-[#666] dark-text-gray-2 decoration-none text-sm flex
+      items-center gap-x-1;
   }
 
   & a:hover {
-    @apply text-gray-9 dark-text-gray-3
-    ;
+    @apply text-gray-9 dark-text-gray-3;
   }
 
   .breadcrumb-list {
@@ -102,8 +96,7 @@
     @apply flex items-center gap-x-1 p-1.5;
 
     .username {
-      @apply text-sm cursor-pointer items-center gap-x-1 relative
-      ;
+      @apply text-sm cursor-pointer items-center gap-x-1 relative;
 
       .icon {
         @apply relative duration-300 rotate-0;
@@ -127,8 +120,7 @@
 
   .mine-text-avatar {
     @apply h-8 w-8 rounded-full text-2xl bg-gray-2 dark:bg-dark-3
-      flex items-center justify-center cursor-pointer
-    ;
+      flex items-center justify-center cursor-pointer;
   }
 }
 
@@ -179,10 +171,9 @@
 
   & .classic,
   & .columns,
-  & .mixed, {
+  & .mixed {
     @apply flex items-center w-16 rounded h-10 p-2 gap-x-0.5
-      cursor-pointer ring-1 ring-gray-2 dark-ring-dark-1
-    ;
+      cursor-pointer ring-1 ring-gray-2 dark-ring-dark-1;
   }
 
   & .mine-selected-layout {
@@ -193,10 +184,13 @@
 .mine-setting-description {
   @apply flex items-center text-sm mt-2;
 
-  & .desc-label { @apply w-8/12; }
-  & .desc-value { @apply w-4/12 text-right; }
+  & .desc-label {
+    @apply w-8/12;
+  }
+  & .desc-value {
+    @apply w-4/12 text-right;
+  }
 }
-
 
 .mine-shortcuts-block {
   @apply w-full text-left;
@@ -214,7 +208,6 @@
 
   .short-key span {
     @apply block px-1 py-0.5 dark-bg-dark-3 rounded bg-gray-1 ring-1 ring-gray-2 dark-ring-dark-1
-    min-w-4 flex justify-center items-center
-    ;
+    min-w-4 flex justify-center items-center;
   }
 }

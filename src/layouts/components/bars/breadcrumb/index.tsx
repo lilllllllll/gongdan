@@ -32,7 +32,7 @@ export default defineComponent({
 
     const renderBreadcrumbs = (route: MineRoute.routeRecord, idx: number): VNode => {
       return (
-        <div class="flex items-center">
+        <div class="flex items-center ">
           <a
             class={{
               'cursor-default': true,
@@ -52,19 +52,19 @@ export default defineComponent({
           </a>
           {
             (route?.children?.length ?? 0) > 0
-            && (<ma-svg-icon name="material-symbols:arrow-right-rounded" class="icon" size={22} />)
+            && (<span class="m-2">\</span>)
           }
         </div>
       )
     }
     return () => (
       <div class="breadcrumb">
-        <router-link to={settingStore.getSettings('welcomePage').path}>
+        {/* <router-link to={settingStore.getSettings('welcomePage').path}>
           <ma-svg-icon name={settingStore.getSettings('welcomePage').icon} />
           {useTrans('menu.welcome')}
           { (currentRoute.name !== settingStore.getSettings('welcomePage').name && breadcrumbs.value.length > 0)
           && <ma-svg-icon name="material-symbols:arrow-right-rounded" className="icon" size={22} />}
-        </router-link>
+        </router-link> */}
         {breadcrumbs.value.length > 0
         && (
           <TransitionGroup name="breadcrumb-animate">

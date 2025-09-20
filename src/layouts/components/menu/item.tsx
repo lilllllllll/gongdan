@@ -103,6 +103,7 @@ export default defineComponent({
                     <>
                       <div class="mine-menu-link-left" style={unref(indentStyle)}>
                         {item?.meta?.icon && <ma-svg-icon name={item.meta.icon} size={20} class="mine-menu-icon" async />}
+                        {!item?.meta?.icon && <span class="w-2" />}
                         {
                           !(rootMenu.isMenuPopup && level === 0 && !rootMenu.props.showCollapseName)
                           && (

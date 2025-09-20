@@ -28,7 +28,8 @@ export default defineComponent({
         }}
       >
         <div class="hidden gap-x-4 lg:flex">
-          <m-dropdown
+          <span class="text-white text-2xl ml-6">客户服务管理系统</span>
+          {/* <m-dropdown
             class="min-w-[18rem] p-3"
             v-slots={{
               default: () => <ma-svg-icon name="i-fluent:star-line-horizontal-3-16-regular" size={20} class="h-6 cursor-pointer" />,
@@ -63,10 +64,12 @@ export default defineComponent({
                 </div>
               ),
             }}
-          />
-          { appSetting.showBreadcrumb && <MineBreadcrumb /> }
+          /> */}
+          {/*
+            注释面包屑
+           { appSetting.showBreadcrumb && <MineBreadcrumb /> } */}
         </div>
-        <div class="flex items-center gap-x-3 lg:hidden">
+        <div class="flex items-center gap-x-3 lg:hidden text-white">
           <Logo showTitle={false} />
           <ma-svg-icon name="material-symbols:menu-rounded" size={20} class="cursor-pointer" onClick={() => settingStore.setMobileSubmenuState(true)} />
         </div>
